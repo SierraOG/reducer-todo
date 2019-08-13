@@ -2,10 +2,12 @@ import React from 'react'
 
 import Todo from './Todo'
 
-const TodoList = (props) => {
+const TodoList = ({todoArray,toggle}) => {
     return (
       <div className="todo-list">
-        {props.todoArray.map((todo) => <Todo todo={todo} toggle={props.toggle}/> )}
+        {todoArray.map((todo) => (
+            <Todo key={todo.id} todo={todo} toggle={toggle} />
+        ))}
       </div>
     )
 }

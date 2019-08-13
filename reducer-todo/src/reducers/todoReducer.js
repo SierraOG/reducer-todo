@@ -9,7 +9,7 @@ export const initialState = {
     task: ""
   };
   
-export function todoReducer(state, action) {
+export const todoReducer = (state, action) => {
     switch (action.type) {
       case "TOGGLE_COMPLETED":
         return {
@@ -24,7 +24,7 @@ export function todoReducer(state, action) {
         return {
           ...state,
           todoArray: state.todoArray.concat({
-            task: action.payload,
+            item: action.payload,
             completed: false,
             id: Date.now()
           }),
@@ -32,8 +32,8 @@ export function todoReducer(state, action) {
         };
       case "CLEAR":
         return {
-          ...state,
-          todoArray: state.todoArray.filter(({ completed }) => !completed)
+            ...state,
+            todoArray: state.todoArray.filter(todoItem => !todoItem.completed)
         };
       default:
         return state;
