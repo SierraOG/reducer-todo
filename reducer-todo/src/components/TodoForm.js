@@ -4,7 +4,6 @@ const TodoForm = (props) => {
     const [item, setItem] = useState('')
   
     const handleChanges = event =>{
-        console.log(event.target.value)
         setItem( event.target.value)
     }
 
